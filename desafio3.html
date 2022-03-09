@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio antes e depois</title>
+    <style>
+         
+        div#area {
+            font: normal 10pt arial;
+            
+            width: 200px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            display:inline-block 
+        }
+      
+    </style>
+    </head>
+    <body>
+        <h1>Antes e depois.</h1> 
+        <div id = 'area' onclick = "clicar()" >
+        Antecessor e Sucessor.
+        </div>
+<script>
+        function clicar(){
+        var a = window.document.getElementById('area')
+        const  number  =  Number ( prompt ( "Digite um inteiro" ) ) ;
+        window.alert ( `Antes de ${ number } temos o número ${ number  -  1 }. 
+        Depois de ${ number } temos o número ${ number  +  1 } .` )
+        }
+</script>
+</body>
+</html>              

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do aluno</title>
+    <style>
+        div#res
+        {
+            font: normal 17px arial;
+        }
+        input
+        {
+            font: normal 15px arial;
+            width: 200px;
+            height: 100px;
+            line-height: 100px;
+         
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Situação do aluno</h1>
+    </header>
+
+    <div>
+        <input type="button" value="Entrar com a notas" onclick="verificar()">
+    </div>
+    <div id="res">
+    </div>
+    <script>
+        function verificar()
+{
+    var nome_aluno = window.prompt("Qual é o nome do aluno?")
+    var nota1 = Number(window.prompt(`Qual é a primeira nota de ${nome_aluno}:`))
+    var nota2 = Number(window.prompt(`Qual é a segunda nota de ${nome_aluno}:`))
+    var res = document.getElementById("res")
+    var media = (nota1 + nota2) / 2
+
+    res.innerHTML = (`<h2>Analisando a situação de ${nome_aluno}</h2>`)
+    res.innerHTML += (`<p>Com as notas ${nota1.toLocaleString("pt-BR")} e ${nota2.toLocaleString("pt-BR")}, a <strong>média é ${media.toLocaleString("pt-BR")}</strong></p>`)
+
+    if(media < 3)
+    {
+        res.innerHTML += (`<p>Com média abaixo de 3,0, o aluno está <mark style="color: crimson; background-color: rgba(255, 0, 0, 0.450);"><strong>REPROVADO</strong></mark></p>`)
+    }
+    else if(media >= 3 && media <= 6)
+    {
+        res.innerHTML += (`<p>Com média entre 3,0 e 6,0, o aluno está em <mark style="color: rgb(204, 150, 0); background-color: rgba(255, 217, 0, 0.336);"><strong>RECUPERAÇÃO</strong></mark></p>`)
+    }
+    else
+    {
+        res.innerHTML += (`<p>Com média acima de 6,0, o aluno está <mark style="color: green; background-color: rgba(4, 192, 4, 0.288);"><strong>APROVADO</strong></mark></p>`)
+    }
+}
+    </script>
+</body>
+</html>

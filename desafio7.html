@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de moedas</title>
+    <style>
+         
+        div#res {
+            font: normal 10pt arial;
+            
+        }
+      
+    </style>
+    </head>
+    <body>
+        <h1>Conversor de moedas.</h1> 
+        <div>
+        <input type="button" value="Converter" onclick="converter()"> 
+        </div>
+        <div id="res">
+        <p>Clique no botão acima para inciar.</p>
+        </div>       
+<script>
+        var cotação_dolar = Number (window.prompt('Qual a cotação do dólar?'))
+        {    
+        function converter(){
+        var reais = Number (window.prompt('Quantos R$ você tem na carteira?'))
+        var res = document.getElementById("res")
+        var dolares = (reais / cotação_dolar).toLocaleString('pt-BR')
+       
+        res.style.fontSize = "17px"  
+        res.style.font  
+        res.innerHTML = `<h2>A moeda em ${reais.toLocaleString('pt-BR',{style: 'currency', currency: 'BRL'})}, corresponde a...</h2>`
+        res.innerHTML += `<p>  ${dolares.toLocaleString('pt-BR',{style: 'currency', currency: 'USD'}) }, dolares.  </p>`
+         
+     }
+    }
+</script>
+</body>
+</html>             

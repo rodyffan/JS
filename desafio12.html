@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço mudou</title>
+    <style>
+        div
+        {
+            font: normal 17px arial;
+            
+        }
+        input
+        {
+            font: normal 15px arial;
+            width: 200px;
+            height: 100px;
+            line-height: 100px;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Preço mudou</h1>
+    </header>
+    <div>
+        <input type="button" value="Verificar" onclick="verificar()">
+    </div>
+    <div id = "res">
+        <p>Clique no botão acima para analisar a mudança de preço.</p>
+    </div>
+    <script>
+        function verificar()
+{
+    var ant_p = Number(window.prompt("Qual era o preço anterior do produto?"))
+    var novo_p = Number(window.prompt("Qual é o preço atual do produto?"))
+    var res = document.getElementById("res")
+
+    res.innerHTML = ("<h2>Analisando os valores informados</h2>")
+    res.innerHTML += (`<p>O produto custava ${ant_p.toLocaleString("pt-BR", {style: 'currency', currency: "BRL"})} e agora custa ${novo_p.toLocaleString("pt-BR", {style: 'currency', currency: "BRL"})}.</p>`)
+
+    if(novo_p > ant_p)
+    {
+        var aumento = novo_p - ant_p
+        var per = (novo_p - ant_p) / ant_p * 100
+
+        res.innerHTML += ("<p>Hoje o produto está mais caro.</p>")
+        res.innerHTML += (`<p>O preço subiu ${aumento.toLocaleString("pt-BR", {style: 'currency', currency: "BRL"})} em relação ao preço anterior.</p>`)
+        res.innerHTML += (`<p>Uma variação de ${per.toLocaleString("pt-BR")}% pra cima.</p>`)
+    }
+    else
+    {
+        var abaixou = ant_p - novo_p
+        var per = (ant_p - novo_p) / ant_p* 100
+
+        res.innerHTML += (`<p>Hoje o produto está mais barato.</p>`)
+        res.innerHTML += (`O preço caiu ${abaixou.toLocaleString("pt-BR", {style: 'currency', currency: "BRL"})} em relação ao preço anterior.`)
+        res.innerHTML += (`<p>Uma variação de ${per.toLocaleString("pt-BR")}% pra baixo.</p>`)
+    }
+
+}
+    </script>
+    
+</body>
+</html>
